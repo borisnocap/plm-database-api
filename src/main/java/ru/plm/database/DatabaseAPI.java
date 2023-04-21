@@ -9,7 +9,7 @@ public interface DatabaseAPI {
 
     Connection getConnection() throws SQLException;
 
-    void closeConnection(Connection conn, PreparedStatement ps, ResultSet res);
+    void closeConnection(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet);
 
-    void rollbackCommit();
+    void rollbackCommit(Connection connection);
 }
