@@ -12,4 +12,6 @@ public interface DatabaseAPI {
     void closeConnection(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet);
 
     void rollbackCommit(Connection connection);
+
+    void closePool();
 }
