@@ -11,9 +11,11 @@ public interface DatabaseAPI {
 
     Connection getConnectionWithoutAutoCommit() throws SQLException;
 
+    void rollbackCommit(Connection connection);
+
     void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet);
 
-    void rollbackCommit(Connection connection);
+    void close(Connection connection);
 
     void closePool();
 }
