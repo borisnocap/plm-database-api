@@ -1,5 +1,7 @@
 package ru.plm.database;
 
+import org.bukkit.plugin.Plugin;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,5 +22,5 @@ public interface DatabaseAPI {
 
     void closePool();
 
-    void runSyncAndAsyncTaskStepByStep(Callable<Void> asyncTask, Runnable syncTask, Runnable onErrorSyncTask);
+    void runSyncAndAsyncTaskStepByStep(Plugin plugin, Callable<Void> asyncTask, Runnable syncTask, Runnable onErrorSyncTask);
 }
