@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.Callable;
 
 public interface DatabaseAPI {
 
@@ -18,4 +19,6 @@ public interface DatabaseAPI {
     void close(Connection connection);
 
     void closePool();
+
+    void runSyncAndAsyncTaskStepByStep(Callable<Void> asyncTask, Runnable syncTask, Runnable onErrorSyncTask);
 }
