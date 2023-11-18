@@ -23,9 +23,5 @@ public interface DatabaseAPI {
 
     void closePool();
 
-    default String getSqlQuery(PreparedStatement preparedStatement) {
-        String stringValue = preparedStatement.toString();
-        int beginIndex = stringValue.indexOf(":") + 2;
-        return stringValue.substring(beginIndex);
-    }
+    String getSqlQuery(PreparedStatement preparedStatement);
 }
