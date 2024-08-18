@@ -24,4 +24,6 @@ public interface DatabaseAPI {
     void closePool();
 
     String getSqlQuery(PreparedStatement preparedStatement);
+
+    int getPlayerID(String nickname);
 }
