@@ -25,5 +25,7 @@ public interface DatabaseAPI {
 
     String getSqlQuery(PreparedStatement preparedStatement);
 
-    int getPlayerID(String nickname);
+    int getNicknameID(String nickname);
+
+    String getNickname(int id);
 }
