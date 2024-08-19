@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@SuppressWarnings("unused")
 public interface DatabaseAPI {
 
     Connection getConnection() throws SQLException;
@@ -25,7 +26,7 @@ public interface DatabaseAPI {
 
     String getSqlQuery(PreparedStatement preparedStatement);
 
-    Integer getNicknameID(String nickname);
+    Integer getID(String nickname);
 
     String getNickname(int id);
 }
