@@ -1,9 +1,13 @@
 package ru.plm.database;
 
+import jakarta.annotation.Nullable;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
 
 @SuppressWarnings("unused")
 public interface DatabaseAPI {
@@ -26,7 +30,30 @@ public interface DatabaseAPI {
 
     String getSqlQuery(PreparedStatement preparedStatement);
 
+    /**
+     * Получить ID, соответствующий указанному никнейму.
+     * @return ID, если игрок с таким никнеймом существует, и null, если не существует.
+     */
+    @Nullable
     Integer getID(String nickname);
 
+    /**
+     * Получить никнейм, соответствующий указанному ID.
+     * @return Никнейм, если игрок с таким ID существует, и null, если не существует.
+     */
+    @Nullable
     String getNickname(int id);
+
+    /**
+     * Получить ID, соответствующий указанному никнейму без учета регистра.
+     * @return ID, если игрок с таким никнеймом существует, и null, если не существует.
+     */
+    @Nullable
+    Integer getIdByNickIgnoreCase(String nicknameIgnoreCase);
+
+    /**
+     * Получить список никнеймов игроков, которые начинаются с указанного префикса без учета регистра.
+     * @return Список никнеймов в правильном регистре.
+     */
+    List<String> getNicknamesStartsWithIgnoreCase(String prefixIgnoreCase);
 }
