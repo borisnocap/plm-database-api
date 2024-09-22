@@ -1,7 +1,8 @@
 package io.plumium.database;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +14,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface DatabaseAPI {
 
-    @Nonnull Connection getConnection() throws SQLException;
+    @NotNull Connection getConnection() throws SQLException;
 
     void close(Connection connection);
 
@@ -21,7 +22,7 @@ public interface DatabaseAPI {
 
     void close(ResultSet resultSet);
 
-    void executeUpdate(@Nonnull PreparedStatement preparedStatement) throws SQLException;
+    void executeUpdate(@NotNull Plugin plugin, @NotNull PreparedStatement preparedStatement) throws SQLException;
 
     /**
      * Получить ID, соответствующий указанному никнейму.
