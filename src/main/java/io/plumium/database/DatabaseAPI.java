@@ -1,5 +1,6 @@
 package io.plumium.database;
 
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
 import java.sql.Connection;
@@ -12,13 +13,15 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface DatabaseAPI {
 
-    Connection getConnection() throws SQLException;
+    @Nonnull Connection getConnection() throws SQLException;
 
     void close(Connection connection);
 
     void close(PreparedStatement preparedStatement);
 
     void close(ResultSet resultSet);
+
+    void executeUpdate(@Nonnull PreparedStatement preparedStatement) throws SQLException;
 
     /**
      * Получить ID, соответствующий указанному никнейму.
