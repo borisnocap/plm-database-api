@@ -1,4 +1,4 @@
-package ru.plm.database;
+package io.plumium.database;
 
 import jakarta.annotation.Nullable;
 
@@ -20,6 +20,8 @@ public interface DatabaseAPI {
 
     void close(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet);
 
+    void close(Connection connection, PreparedStatement preparedStatement);
+
     void close(Connection connection);
 
     void close(PreparedStatement preparedStatement);
@@ -35,7 +37,7 @@ public interface DatabaseAPI {
      * @return ID, если игрок с таким никнеймом существует, и null, если не существует.
      */
     @Nullable
-    Integer getID(String nickname);
+    Long getID(String nickname);
 
     /**
      * Получить никнейм, соответствующий указанному ID.
@@ -49,7 +51,7 @@ public interface DatabaseAPI {
      * @return ID, если игрок с таким никнеймом существует, и null, если не существует.
      */
     @Nullable
-    Integer getIdByNickIgnoreCase(String nicknameIgnoreCase);
+    Long getIdByNickIgnoreCase(String nicknameIgnoreCase);
 
     /**
      * Получить список никнеймов игроков, которые начинаются с указанного префикса без учета регистра.
