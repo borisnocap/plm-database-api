@@ -44,7 +44,7 @@ public interface DatabaseAPI {
      * @return Никнейм, если игрок с таким ID существует, и null, если не существует.
      */
     @Nullable
-    String getNickname(int id);
+    String getNickname(long id);
 
     /**
      * Получить ID, соответствующий указанному никнейму без учета регистра.
